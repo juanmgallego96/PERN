@@ -10,8 +10,7 @@ const getTask=(req,res)=>{
 const createTask=async(req,res)=>{
     const {title,description}=req.body
     const result=await pool.query('INSERT INTO tasks (title,description) VALUES ($1,$2) RETURNING *',[title,description])
-    res.send('Creating a task');
-    console.log(result)
+    res.json()
 }
 const deleteTask=(req,res)=>{
     res.send('Deleting a task');
